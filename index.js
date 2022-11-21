@@ -259,7 +259,7 @@ const addEmployee = (roles) => {
 const updateEmployee = () => {
 
     return db.promise().query(
-        "SELECT R.id, R.title, R.salary, R.department_id FROM role R;"
+        "SELECT R.id, R.title, R.salary, R.department_id FROM roles R;"
     )
         .then(([roles]) => {
             let roleChoices = roles.map(({
@@ -287,12 +287,12 @@ const updateEmployee = () => {
                         [{
                             type: 'input',
                             name: 'title',
-                            message: 'Please enter your title.',
+                            message: 'Please enter the new title.',
                             validate: titleName => {
                                 if (titleName) {
                                     return true;
                                 } else {
-                                    console.log('Error. Please enter your title.');
+                                    console.log('Error. Please enter the new title.');
                                     return false;
                                 }
                             }
@@ -300,12 +300,12 @@ const updateEmployee = () => {
                         {
                             type: 'input',
                             name: 'salary',
-                            message: 'Please enter your salary.',
+                            message: 'Please enter the new salary.',
                             validate: salary => {
                                 if (salary) {
                                     return true;
                                 } else {
-                                    console.log('Error. Please enter your salary.');
+                                    console.log('Error. Please enter the new salary.');
                                     return false;
                                 }
                             }
